@@ -9,6 +9,15 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'cancan'
+gem 'carrierwave'
+gem 'geocoder'
+gem 'activeadmin', github: 'gregbell/active_admin'
+# gem 'responders', github: 'plataformatec/responders'
+# gem 'inherited_resources', github: 'josevalim/inherited_resources'
+# gem 'protected_attributes'
+gem 'country_select'
+gem 'wicked'
+gem 'rmagick'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'devise'
 gem 'figaro'
@@ -19,6 +28,7 @@ gem 'zurb-foundation'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
+  gem 'meta_request'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
 end

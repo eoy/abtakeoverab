@@ -10,16 +10,99 @@
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
-    <div id="container" class="container">
-      <header>
-        <%= render 'layouts/navigation' %>
-        <%= render 'layouts/messages' %>
-      </header>
-      <div id="main" role="main">
-        <%= yield %>
+    <!-- Navigation -->
+    <nav class="top-bar">
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+          <h1>
+            <a href="">
+              Ab Takover Ab
+            </a>
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="#"><%= I18n.t('language') %></a>
+            <ul class="dropdown">
+              <li><label><%= I18n.t('language') %></label></li>
+              <li><%= link_to "English", {:locale => :en} %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Finnish", {:locale => :fi} %></li>
+            </ul>
+          </li>
+          <% if user_signed_in? %>
+          <li class="divider"></li>
+          <li class="has-dropdown right">
+            <a href="#"><%= current_user.email %></a>
+            <ul class="dropdown">
+              <li>
+                <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+              </li>
+              <li>
+                <%= link_to 'Edit account', edit_user_registration_path %>
+              </li>
+              <% if current_user.has_role? :admin %>
+                <li>
+                  <%= link_to 'Admin', "/admin/" %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
+
+    <!-- End Top Bar -->
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="row" style="margin-top: 3em;">
+          <%= yield %>
+        </div>
       </div>
-      <footer>
-      </footer>
-    </div> <!--! end of #container -->
+    </div>
+
+      <!-- End Content -->
+
+
+      <!-- Footer -->
+
+        <footer class="row">
+          <div class="large-12 columns"><hr>
+              <div class="row">
+
+                <div class="large-6 columns">
+                    <p>&copy; Copyright no one at all. Go to town.</p>
+                </div>
+
+                <div class="large-6 small-12 columns">
+                    <ul class="inline-list right">
+                      <li><a href="#">Link 1</a></li>
+                      <li><a href="#">Link 2</a></li>
+                      <li><a href="#">Link 3</a></li>
+                      <li><a href="#">Link 4</a></li>
+                    </ul>
+                </div>
+
+              </div>
+          </div>
+        </footer>
+
+      <!-- End Footer -->
+
+      </div>
+    </div>
+    <script>
+      $(document).foundation();
+    </script>
+    <!-- End Footer -->
   </body>
 </html>

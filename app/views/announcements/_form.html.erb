@@ -1,0 +1,17 @@
+<%= simple_form_for(@announcement, :html => {:multipart => true}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :document do %>
+      <%= link_to("File", @announcement.document.url) if @announcement.document? %>
+      <%= f.file_field :document %>
+      <%= f.hidden_field :document_cache %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => "button success" %>
+  </div>
+<% end %>

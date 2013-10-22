@@ -1,0 +1,6 @@
+<h2>Select Country:</h2>
+
+<%= simple_form_for @user, url: wizard_path(:accept_terms), :method => "GET" do |f| %>
+  <%= country_select("user", "country", [ "#{request.location.try(:country).try(:humanize)}"]) %>
+  <%= f.submit "Submit" %>
+<% end %>

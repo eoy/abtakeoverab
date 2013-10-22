@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Document</th>
+      <% if can? :update, @announcements %>
+        <th></th>
+        <th></th>
+        <th></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @announcements.each do |announcement| %>
+      <tr>
+        <td><%= announcement.title %></td>
+        <td><%= announcement.description %></td>
+        <td><%= link_to announcement.document, announcement.document.url %></td>
+        <td><%= link_to 'Show', announcement.document.url, :target => "_blank", :class => "button tiny" %></td>
+        <% if can? :update, announcement %>
+          <td><%= link_to 'Edit', edit_announcement_path(announcement), :class => "button tiny secondary" %></td>
+          <td><%= link_to 'Destroy', announcement, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button tiny alert" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to('New Announcement', new_announcement_path, :class => "button") if (user_signed_in? && current_user.has_role?(:admin)) %>

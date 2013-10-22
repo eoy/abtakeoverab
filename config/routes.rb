@@ -1,5 +1,9 @@
 Abtakeoverab::Application.routes.draw do
-  root :to => "home#index"
+  scope "(:locale)", :locale => /en|fi|sv/ do
+    resources :announcements
+  end
+
+  root :to => "announcements#index"
   devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :users
+  ActiveAdmin.routes(self)
 end
