@@ -6,7 +6,7 @@ set :root_user, "root"
 
 load "config/recipes/base"
 load "config/recipes/system_user"
-load "config/recipes/digitalocean"
+#load "config/recipes/digitalocean"
 load "config/recipes/nginx"
 load "config/recipes/unicorn"
 # load "config/recipes/postgresql"
@@ -76,7 +76,7 @@ namespace :deploy do
   task :console, :roles => :app do
     env = "#{rails_env}"
     server = find_servers(:roles => [:app]).first
-    run_with_tty server, %W( ./script/rails console #{env} )
+    run_with_tty server, %W( bundle exec rails console #{env} )
   end
 
   task :setup_config, roles: :app do
