@@ -1,10 +1,10 @@
 ActiveAdmin.register Announcement do
+  config.batch_actions = true
   index do
-    column :id
     column :title
     column :description
     column :document do |d|
-      link_to d.document.filename, d.document.url
+      link_to image_tag(d.document.thumb.url), d.document.url
     end
     default_actions
   end
@@ -19,6 +19,14 @@ ActiveAdmin.register Announcement do
     end
     f.actions
   end
+
+  member_action :delete, :method => :get do
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to "/admin/commments"
+  end
+
+  filter :title
 
   controller do
     def permitted_params

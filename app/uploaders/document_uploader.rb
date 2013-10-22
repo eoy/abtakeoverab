@@ -24,7 +24,7 @@ class DocumentUploader < CarrierWave::Uploader::Base
 
   version :thumb do
     process :cover
-    process :resize_to_fill => [50, 50, Magick::NorthGravity]
+    process :resize_to_fill => [150, 150, Magick::NorthGravity]
     process :convert => 'png'
   end
 

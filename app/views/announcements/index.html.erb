@@ -17,7 +17,7 @@
       <tr>
         <td><%= announcement.title %></td>
         <td><%= announcement.description %></td>
-        <td><%= link_to announcement.document, announcement.document.url %></td>
+        <td><%= link_to image_tag(announcement.document.thumb), announcement.document.url %></td>
         <td><%= link_to 'Show', announcement.document.url, :target => "_blank", :class => "button tiny" %></td>
         <% if can? :update, announcement %>
           <td><%= link_to 'Edit', edit_announcement_path(announcement), :class => "button tiny secondary" %></td>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to('New Announcement', new_announcement_path, :class => "button") if (user_signed_in? && current_user.has_role?(:admin)) %>
+<%= link_to('New Announcement', new_announcement_path, :class => "button", 'data-disable-width' => "Redirection..") if (user_signed_in? && current_user.has_role?(:admin)) %>
