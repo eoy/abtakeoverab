@@ -3,8 +3,7 @@ class AnnouncementsController < ApplicationController
   before_action :check_session
 
   include Wicked::Wizard
-  # load_and_authorize_resource, only: [:create, :edit]
-
+  # load_and_authorize_resource
 
   steps :select_language, :select_country, :accept_terms, :refuse, :index
 
@@ -32,7 +31,7 @@ class AnnouncementsController < ApplicationController
 
     case step
     when :select_country
-      session[:locale] == params[:locale]
+      session[:locale] = params[:locale]
     end
 
     case step

@@ -16,6 +16,17 @@ namespace :nginx do
   end
   after "deploy:setup", "nginx:setup"
 
+  task :dns, roles: :web do
+    puts "Creating a subdomain for the vhost\n"
+    cmd = "curl  -H 'X-DNSimple-Token: niklas@milkpluschocolate.com:gJv7D2o1TstZ9Jea2lP' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '{\"record\":{\"name\": \"#{application}\",\"record_type\": \"A\",\"content\": \"#{server_ip}\",\"ttl\": 3600,\"prio\": 10}}' \
+      https://dnsimple.com/domains/mplusc.net/records"
+    system(cmd)
+  end
+
   %w[start stop restart].each do |command|
     desc "#{command} nginx"
     task command, roles: :web do
