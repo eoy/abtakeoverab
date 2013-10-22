@@ -31,10 +31,10 @@
           <li class="has-dropdown">
             <a href="#"><%= I18n.t('language') %></a>
             <ul class="dropdown">
-              <li><label><%= I18n.t('language') %></label></li>
-              <li><%= link_to "English", {:locale => :en} %></li>
+              <li><label>Språk</label></li>
+              <li><%= link_to "Svenska", {:locale => :sv} %></li>
               <li class="divider"></li>
-              <li><%= link_to "Finnish", {:locale => :fi} %></li>
+              <li><%= link_to "English", {:locale => :en} %></li>
             </ul>
           </li>
           <% if user_signed_in? %>

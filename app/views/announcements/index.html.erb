@@ -1,9 +1,9 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Document</th>
+      <th><%= t('title') %></th>
+      <th><%= t('description') %></th>
+      <th><%= t('document') %></th>
       <% if can? :update, @announcements %>
         <th></th>
         <th></th>

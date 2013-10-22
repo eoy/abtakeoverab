@@ -1,4 +1,41 @@
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, reprehenderit, maiores repellat voluptates ullam totam in sequi velit dolor explicabo est odit obcaecati doloribus! Voluptate nihil sequi est sunt laudantium.</p>
+<% if I18n.locale.to_s == "sv" %>
+<h1>Bekräftelse</h1>
+<p>
+H Intressenter AB (”H Intressenter”) offentliggjorde den 11 februari 2013 ett kontanterbjudande till aktieägarna i Höganäs AB (publ) (”Höganäs” eller ”Bolaget”) om förvärv av samtliga aktier i Bolaget (”Erbjudandet”).</p>
 
-<%= link_to "I accept", announcements_path(:accepted => true), :class => "button success" %>
-<%= link_to "I refuse", wizard_path(:refuse), :class => "button secondary" %>
+<p>
+Erbjudandet lämnas inte i någon jurisdiktion där lämnande av Erbjudandet eller accept av Erbjudandet inte kan ske i enlighet med lagar och regleringar i dessa jurisdiktioner eller där lämnande eller accept av Erbjudandet förutsätter ytterligare erbjudandehandlingar, registrerings- eller andra åtgärder än de som följer av svensk lag.</p>
+
+<p>Erbjudandet riktar sig inte till personer vars deltagande i Erbjudandet förutsätter att någon ytterligare erbjudandehandling upprättas, information lämnas, registrering sker eller att någon annan åtgärd företas utöver vad som krävs enligt svensk lag. Dokumentation som är hänförlig till Erbjudandet får inte tillhandahållas, postas eller på annat sätt distribueras eller sändas in i eller till något land där detta skulle förutsätta att några sådana ytterligare åtgärder företas eller där detta skulle strida mot lagar eller regleringar i det landet. H Intressenter kommer inte att tillåta eller godkänna någon sådan distribution.</p>
+
+<p>Varje försök att acceptera Erbjudandet, i strid mot ovan nämnda restriktioner eller som ett resultat av att direkt eller indirekt ha överträtt dessa restriktioner, kan innebära att accepten lämnas utan avseende.</p>
+
+<p>Tvist med anledning av Erbjudandet skall avgöras enligt svensk lag och av svensk domstol exklusivt.</p>
+
+<p>Erbjudandet lämnas inte, vare sig direkt eller indirekt, genom post eller något annat kommunikationsmedel (varmed bland annat förstås telefax, e-post, telex, telefon eller Internet) i eller till Australien, Hongkong, Japan, Kanada, Nya Zeeland, Sydafrika eller USA, och Erbjudandet kan inte accepteras i eller från Australien, Hongkong, Japan, Kanada, Nya Zeeland, Sydafrika eller USA.</p>
+
+<p>Erbjudandehandlingen, anmälningssedeln och/eller annan dokumentation avseende Erbjudandet skickas inte, och får inte skickas, till aktieägare med registrerade adresser i Australien, Hongkong, Japan, Kanada, Nya Zeeland, Sydafrika eller USA. Banker, fondkommissionärer och andra institutioner som innehar förvaltarregistrerade aktier för personer i Australien, Hongkong, Japan, Kanada, Nya Zeeland, Sydafrika eller USA, får inte vidarebefordra erbjudandehandlingen, eller andra till Erbjudandet relaterade dokument, till sådana personer.</p>
+
+<p>Genom att acceptera dessa villkor nedan bekräftar jag att jag har läst informationen, villkoren och anvisningarna på denna hemsida och accepterar att vara bunden av dessa samt bekräftar att jag inte befinner mig i Australien, Hongkong, Japan, Kanada, Nya Zeeland, Sydafrika eller USA eller någon annan jurisdiktion i vilken distribution eller accept av Erbjudandet inte skulle vara förenligt med lagar eller regler i sådan jurisdiktion eller där lämnande eller godkännande av accept av Erbjudandet förutsätter ytterligare erbjudandehandlingar, registrerings- eller andra åtgärder än de som följer av svensk lag. </p>
+<% end %>
+<% if I18n.locale.to_s == "en" %>
+<h1>Confirmation</h1>
+<p>On February 11, 2013, H Intressenter AB (“H Intressenter”), announced a cash offer to the shareholders in Höganäs AB (publ) (”Höganäs” or "the Company”) for all shares in the Company (the “Offer”).</p>
+
+<p>The Offer is not being made in any jurisdictions where the Offer or an acceptance of the Offer cannot be made in accordance with laws and regulations in these jurisdictions or where the Offer or an acceptance of the Offer requires additional offer documents, registration- or other measures than those required under Swedish law.</p>
+
+<p>The Offer is not being made to persons whose participation in the Offer requires that any additional offer document is prepared, information rendered, registration effected or that any other measure is taken in addition to those required under Swedish law. Documentation relating to the Offer must not be provided, mailed or otherwise distributed or sent to, into or in any country in which the distribution or offering would require any additional measures required to be taken or that would be in conflict with any law or regulation in such country. Any such action will not be permitted or sanctioned by H Intressenter.</p>
+
+<p>Any attempt to accept the Offer, in violation of the abovementioned restrictions, or as a result of a direct or indirect violation of such restrictions, may lead to the acceptance to be disregarded.</p>
+
+<p>Any dispute regarding the Offer shall be settled in accordance with Swedish law and by Swedish courts of law exclusively.</p>
+
+<p>The Offer is not being made, directly or indirectly, by use of mail or any other means of communication (including, without limitation, facsimile transmission, e-mail, telex, telephone and the Internet) in or into Australia, Canada, Hong Kong, Japan, New Zealand, South Africa or USA and the Offer cannot be accepted in or from Australia, Canada, Hong Kong, Japan, New Zealand, South Africa or USA.</p>
+
+<p>The offer document, the acceptance form and/or any documentation related to the Offer will not be sent, and must not be sent, to shareholders with registered addresses in Australia, Canada, Hong Kong, Japan, New Zealand, South Africa or USA. Banks, brokers and other nominees holding shares in trust for persons in Australia, Canada, Hong Kong, Japan, New Zealand, South Africa or USA may not forward the offer document or any documentation related to the Offer to such persons.</p>
+
+<p>By accepting these conditions below, I confirm that I have read and accept to be bound by the information, conditions and instructions on this webpage and confirm that I am not located in Australia, Canada, Hong Kong, Japan, New Zealand, South Africa or USA or any other jurisdiction in which the distribution or acceptance of the Offer would not be made in compliance with laws and regulations in such jurisdiction or where the acceptance or approval of an acceptance of the Offer requires additional offer documents, registration- or other measures than those required under Swedish law.</p>
+<% end %>
+
+<%= link_to t('accept'), announcements_path(:accepted => true), :class => "button success" %>
+<%= link_to t('refuse'), wizard_path(:refuse), :class => "button secondary" %>

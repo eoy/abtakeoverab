@@ -1,0 +1,10 @@
+sv:
+  language: "Svenska"
+  hello: "Hello world"
+  select_country: "Välj land"
+  submit: "Skicka"
+  accept: "Godkänn"
+  refuse: "Avbryt"
+  title: "Titel"
+  description: "Beskrivning"
+  document: "Dokument"

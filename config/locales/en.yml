@@ -22,3 +22,11 @@
 en:
   language: "English"
   hello: "Hello world"
+  select_country: "Select country"
+  submit: "Submit"
+  accept: "Accept"
+  refuse: "Cancel"
+  title: "Title"
+  description: "Description"
+  document: "Document"
+
