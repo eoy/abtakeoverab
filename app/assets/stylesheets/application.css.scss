@@ -11,6 +11,9 @@
  *= require_self
  *= require foundation_and_overrides
 */
+table {
+  width: 100%;
+}
 .brand {
   float: left;
   padding-right: 8px;
