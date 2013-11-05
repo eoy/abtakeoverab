@@ -124,6 +124,7 @@ namespace :deploy do
       run "cd #{current_path}/public; rm -rf images; ln -s #{shared_path}/images ."
     end
   end
+  after "deploy:finalize_update", "deploy:uploads:symlink"
 
   # PostgreSQL
   namespace :pg do
